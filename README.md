@@ -1,83 +1,93 @@
-# IT3040 Assignment 1 – Playwright Tests
+IT3040 Assignment 1 – Playwright Tests
+Overview
 
-## Overview
-This repository contains my individual submission for IT3040 – Information Technology Project Management (BSc Hons IT, Year 3, Semester 1). The assignment focuses on testing the Singlish-to-Sinhala transliteration system available at [Swift Translator](https://www.swifttranslator.com/) using automated Playwright scripts.
+This repository contains my individual submission for IT3040 – Information Technology Project Management (BSc Hons IT, Year 3, Semester 1).
 
-The main objectives were to assess:
+The assignment focuses on testing the Singlish-to-Sinhala transliteration system available at Swift Translator
+ using automated Playwright scripts.
 
-- Accuracy of transliteration for Singlish to Sinhala.
-- Stability and usability of the user interface under different conditions.
-- Handling of sentence structures, tense variations, politeness levels, mixed English content, punctuation, repeated words, slang, and varying input lengths.
+Main objectives:
 
-## Test File
-All test scenarios are included in a single Playwright test file:
+Validate accuracy of Singlish-to-Sinhala transliteration.
 
-- `SwiftTranslatorTest/tests/translator.spec.js`  
+Check stability and usability of the user interface.
 
-This file contains:
+Test sentence structures, tense variations, politeness levels, mixed English content, punctuation, repeated words, slang, and input lengths.
 
-- **24 Positive Functional Tests** — validating correct transliteration.
-- **10 Negative Functional Tests** — testing incorrect or unexpected behavior.
-- **1 UI Test** — verifying real-time output updates and input clearing.
+Test File
 
-The test file uses helper functions (`translate()` and `getTranslationOutput()`) to read outputs from the translator, supporting multiple fallback strategies.
+All scenarios are included in one Playwright test file:
 
-## Installation
-1. Ensure [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) are installed.
-2. Clone the repository:
-```bash
+SwiftTranslatorTest/tests/translator.spec.js
+
+Contents:
+
+24 Positive Functional Tests – correct transliteration.
+
+10 Negative Functional Tests – incorrect or unexpected behavior.
+
+1 UI Test – real-time output updates and input clearing.
+
+Helper functions (translate() and getTranslationOutput()) are used for reading outputs and handling fallback strategies.
+
+Excel Test Cases
+
+All test scenarios are also recorded in:
+
+IT23821804.xlsx
+
+The Excel file includes positive, negative, and UI test cases with all relevant details.
+
+Installation & Running Tests
+
+Ensure Node.js
+ and npm
+ are installed.
+
+Clone the repository:
+
 git clone https://github.com/OshaniWijekoon/IT23821804_IT3040_Asignment1.git
+
+
 Navigate into the project folder:
 
 cd IT23821804
+
+
 Install dependencies:
 
 npm install
-Running Tests
-Execute all Playwright tests with:
+
+
+Run all tests:
 
 npx playwright test
-Test results will be automatically recorded in test-results.json.
+
+
+Test results are automatically recorded in test-results.json.
 
 Structure
 IT23821804/
 ├── SwiftTranslatorTest/
 │   ├── tests/
-│   │   └── translator.spec.js   # All automated test cases
+│   │   └── translator.spec.js
 │   ├── package.json
 │   └── package-lock.json
+├── IT23821804.xlsx
 ├── .gitignore
 ├── playwright.config.js
 └── README.md
+
 Notes
-Input Length Categories:
 
-S (≤30 characters), M (31–299 characters), L (≥300 characters)
+Input Length Categories: S (≤30 chars), M (31–299 chars), L (≥300 chars)
 
-English Terms & Abbreviations:
-Technical terms, brand names, and common English words remain unchanged in Sinhala output.
+English Terms & Abbreviations: Remain unchanged.
 
-Test Coverage:
-All test cases (positive, negative, UI) are automated in a single file (translator.spec.js) for simplicity.
+Test Coverage: All scenarios automated in one file.
 
-Functional & Robustness Validation:
-Positive tests check for accurate transliteration, while negative tests validate robustness against incorrect, joined, or informal inputs.
+Validation: Positive tests = accuracy, negative = robustness.
 
-UI Validation:
-Includes real-time output updates and input clearing behavior.
+UI Tests: Real-time output and clearing behavior.
 
-Test ID Conventions:
-
-Positive functional: Pos_Fun_
-
-Negative functional: Neg_Fun_
-
-Positive UI: Pos_UI_
-
-Negative UI: Neg_UI_
-
-Limitations:
-
-Short chat-style abbreviations (e.g., “Thx”, “u”) are not converted, as expected.
-
-Sinhala output may vary slightly in spacing for long or complex paragraphs, but meaning is preserved.
+Limitations: Short chat abbreviations (e.g., “Thx”, “u”) not converted; minor spacing variations may occur.
